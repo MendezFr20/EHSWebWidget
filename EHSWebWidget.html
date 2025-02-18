@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosquito Protection Widget</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Bebas+Neue&display=swap');
+        
+        .widget-container {
+            font-family: 'Raleway', sans-serif;
+            width: 270px;
+            padding: 20px;
+            border: 3px solid #0066a4;
+            border-radius: 12px;
+            background: #f0f8ff;
+            text-align: center;
+            position: relative;
+        }
+        .widget-logo {
+            max-width: 120px;  /* Increased size */
+            margin-bottom: 10px;
+        }
+        .widget-mosquito {
+            width: 60px;  /* Increased size */
+            height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .widget-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 6px 0;
+            background: #0066a4;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .widget-button:hover {
+            background: #004a78;
+        }
+        .widget-info {
+            margin-top: 12px;
+            font-size: 14px;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .widget-title {
+            color: #0066a4;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-container">
+        <img src="https://github.com/MendezFr20/EHSWebWidget/blob/Assets/DCHD_Seal_color.png?raw=true" alt="Company Logo" class="widget-logo">
+        <img src="https://github.com/MendezFr20/EHSWebWidget/blob/Assets/Mosquito.png?raw=true" alt="Mosquito Icon" class="widget-mosquito">
+        <h2 class="widget-title"><span class="highlight">3Rs</span> of Mosquito Protection</h2>
+        <button class="widget-button" onclick="showInfo('reduce')"><span class="highlight">Reduce</span></button>
+        <button class="widget-button" onclick="showInfo('repel')"><span class="highlight">Repel</span></button>
+        <button class="widget-button" onclick="showInfo('report')"><span class="highlight">Report</span></button>
+        <div class="widget-info" id="info-box">Click a button to learn more.</div>
+    </div>
+
+    <script>
+        function showInfo(type) {
+            const infoBox = document.getElementById('info-box');
+            let info = '';
+            switch (type) {
+                case 'reduce':
+                    info = '<span class="highlight">Reduce</span> - the number of mosquitoes and get rid of containers outside that hold water.';
+                    info += ' <a href="https://www.idph.state.il.us/envhealth/wnv.htm" target="_blank">Learn More</a>';
+                    break;
+                case 'repel':
+                    info = '<span class="highlight">Repel</span> - mosquitoes by using insect repellant.';
+                    info += ' <a href="https://www.cdc.gov/mosquitoes/prevention/index.html" target="_blank">Learn More</a>';
+                    break;
+                case 'report':
+                    info = '<span class="highlight">Report</span> - areas where water sits for more than a week.';
+                    info += ' <a href="https://www.idph.state.il.us/envhealth/wnv.htm" target="_blank">Learn More</a>';
+                    break;
+            }
+            infoBox.innerHTML = info;
+        }
+    </script>
+</body>
+</html>
